@@ -17,11 +17,10 @@ const protect = async (request , responnse , next) => {
                 next();
             }
             else {
-                return responnse.status(400).json({message : "You are librarian"});
+                return responnse.status(400).json({message : "You are not librarian"});
             }
         } catch (error) {
-            responnse.status(401);
-            throw new Error("user not authorized");
+            return responnse.status(400).json({message : "server error"});
         }
     }
 
